@@ -23,7 +23,7 @@ abstract class Command {
 
         $this->init();
 
-        echo get_called_class() . ' ' . $this->userId . ' ' . $this->channel . '\r\n';
+        echo get_called_class() . " " . $this->userId . " " . $this->channel . "\r\n";
     }
 
     public function init() {
