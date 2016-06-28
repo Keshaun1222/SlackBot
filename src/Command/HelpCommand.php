@@ -8,7 +8,7 @@ class HelpCommand extends Command {
     public function fire() {
         $client = $this->client;
 
-        $message = "Available Commands\r\n------------------\r\n";
+        $message = "Available Commands\r\n------------------------\r\n";
         $message .= "None yet :(\r\n";
 
         $this->client->getDMByUserId($this->userId)->then(function (DirectMessageChannel $dm) use ($client, $message) {
