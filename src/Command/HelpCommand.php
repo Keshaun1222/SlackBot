@@ -11,7 +11,7 @@ class HelpCommand extends Command {
         $message = 'Available Commands\r\n------------------\r\n';
         $message .= 'None yet :(\r\n';
 
-        $this->client->getDMById($this->userId)->then(function (DirectMessageChannel $dm) use ($client, $message) {
+        $this->client->getDMByUserId($this->userId)->then(function (DirectMessageChannel $dm) use ($client, $message) {
             $client->send($message, $dm);
         });
 
