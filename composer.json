@@ -1,0 +1,24 @@
+{
+  "name": "keshaun1222/SlackBot",
+  "description": "A PHP bot for Slack",
+  "authors": [
+    {
+      "name": "Keshaun Williams",
+      "email": "keshaun@eotir.com"
+    }
+  ],
+  "require": {
+    "coderstephen/slack-client": "dev-master",
+    "vlucas/phpdotenv": "^2.1"
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "autoload": {
+    "psr-4": {"SlackBot\\": "src/"}
+  },
+  "scripts": {
+    "post-root-package-install": [
+      "php -r \"copy('.env.default', '.env');\""
+    ]
+  }
+}
