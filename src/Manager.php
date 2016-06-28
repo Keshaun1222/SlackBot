@@ -40,7 +40,7 @@ class Manager {
             return false;
         }
 
-        $command = subtr($command, 1);
+        $command = substr($command, 1);
         $args = [];
 
         foreach($input_array as $i => $arg) {
