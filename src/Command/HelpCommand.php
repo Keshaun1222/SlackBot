@@ -9,7 +9,8 @@ class HelpCommand extends Command {
         $client = $this->client;
 
         $message = "Available Commands\r\n------------------------\r\n";
-        $message .= "!nation <id> - Lookup the stats of a nation.\r\n";
+        $message .= "!nation <nationid> - Lookup the stats of a nation.\r\n";
+        $message .= "!raiding <nationid> - Lookup raiding targets with your nation's war range.\r\n";
 
         $client->getChannelGroupOrDMByID($this->channel)->then(function (ChannelInterface $channel) use ($client, $message) {
             $client->send($message, $channel);
