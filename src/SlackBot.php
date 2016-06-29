@@ -5,6 +5,7 @@ use React\EventLoop\Factory;
 use Slack\ConnectionException;
 use Slack\RealTimeClient;
 use SlackBot\Command\HelpCommand;
+use SlackBot\Command\NationCommand;
 use SlackBot\Message\Message;
 
 class SlackBot {
@@ -20,6 +21,7 @@ class SlackBot {
 
         $commandBindings = [
             'help' => HelpCommand::class,
+            'nation' => NationCommand::class,
         ];
 
         $manager = new Manager($client, $commandBindings);
