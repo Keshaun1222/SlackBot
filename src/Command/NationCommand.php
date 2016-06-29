@@ -13,17 +13,25 @@ class NationCommand extends Command {
             if (is_numeric($nationID)) {
                 $nation = (new APICall())->call("nation", $nationID);
 
-                $message = "Nation Information\r\n------------------------\r\n";
-                $message .= "Nation Name: " . $nation['name'] . " || ";
-                $message .= "Nation Link: https://politicsandwar.com/nation/id=" . $nation['nationid'] . " || ";
-                $message .= "Nation Rank: " . $nation['nationrankstrings'] . "\r\n";
-                $message .= "# of Cities: " . count($nation['cityids']) . " || ";
-                $message .= "Total Infrastructure: " . $nation['totalinfrastructure'] . " || ";
-                $message .= "Total Land Area: " . $nation['landarea'] . "\r\n";
+                if (!isset($nation['error'])) {
+                    $message = "Nation Information\r\n------------------------\r\n";
+                    $message .= "Nation Name: " . $nation['name'] . " || ";
+                    $message .= "Nation Link: https://politicsandwar.com/nation/id=" . $nation['nationid'] . " || ";
+                    $message .= "Nation Rank: " . $nation['nationrankstrings'] . "\r\n";
+                    $message .= "# of Cities: " . count($nation['cityids']) . " || ";
+                    $message .= "Total Infrastructure: " . $nation['totalinfrastructure'] . " || ";
+                    $message .= "Total Land Area: " . $nation['landarea'] . "\r\n";
 
-                $client->getChannelGroupOrDMByID($this->channel)->then(function (ChannelInterface $channel) use ($client, $message) {
-                    $client->send($message, $channel);
-                });
+                    $client->getChannelGroupOrDMByID($this->channel)->then(function (ChannelInterface $channel) use ($client, $message) {
+                        $client->send($message, $channel);
+                    });
+                } else {
+                    $message = "Nation does not exist. :pacman:\r\n";
+
+                    $client->getChannelGroupOrDMByID($this->channel)->then(function (ChannelInterface $channel) use ($client, $message) {
+                        $client->send($message, $channel);
+                    });
+                }
             } else {
                 $message = "Invalid Arguments. Must use \"!nation <nationid>\".";
 

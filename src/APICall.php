@@ -8,7 +8,7 @@ class APICall {
     private $nationAPI = "https://politicsandwar.com/api/nation/id=";
     private $tradeAPI = "https://politicsandwar.com/api/tradeprice/resource=";
     private $cityAPI = "https://politicsandwar.com/api/city/id=";
-    private $war = "http://cloudnation.koso.com.br/cnalliancewar/active_wars_api";
+    private $warAPI = "http://cloudnation.koso.com.br/cnalliancewar/active_wars_api";
 
     public function call($name, $id = null) {
         $name .= "API";
@@ -17,5 +17,10 @@ class APICall {
             $call .= $id;
         $json_string = file_get_contents($call);
         return json_decode($json_string, true);
+    }
+
+    public function callFromWeb($url) {
+        $data = file_get_contents($url);
+        return strip_tags($data);
     }
 }
