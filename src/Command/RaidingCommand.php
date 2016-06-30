@@ -166,14 +166,14 @@ class RaidingCommand extends Command {
                     });
                 }
             } else {
-                $message = "Invalid Arguments. Must use \"!raiding <nationid>\".";
+                $message = "Invalid Arguments. Must use \"!raiding <nationid> [none|beige|vacation|both]\".";
 
                 $client->getChannelGroupOrDMByID($this->channel)->then(function (ChannelInterface $channel) use ($client, $message) {
                     $client->send($message, $channel);
                 });
             }
         } else {
-            $message = "Missing Arguments. Must use \"!raiding <nationid>\".";
+            $message = "Missing Arguments. Must use \"!raiding <nationid> [none|beige|vacation|both]\".";
 
             $client->getChannelGroupOrDMByID($this->channel)->then(function (ChannelInterface $channel) use ($client, $message) {
                 $client->send($message, $channel);

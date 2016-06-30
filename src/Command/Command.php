@@ -2,6 +2,7 @@
 namespace SlackBot\Command;
 
 use Slack\RealTimeClient;
+use SlackBot\DB;
 use SlackBot\Manager;
 use SlackBot\Message\Message;
 
@@ -14,7 +15,7 @@ abstract class Command {
     protected $db;
     protected $args;
 
-    public function __construct(RealTimeClient $client, Manager $manager, Message $message, $db, array $args = null) {
+    public function __construct(RealTimeClient $client, Manager $manager, Message $message, DB $db, array $args = null) {
         $this->client = $client;
         $this->manager = $manager;
         $this->message = $message;
