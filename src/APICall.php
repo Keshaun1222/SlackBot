@@ -8,7 +8,7 @@ class APICall {
     private $nationAPI = "https://politicsandwar.com/api/nation/id=";
     private $tradeAPI = "https://politicsandwar.com/api/tradeprice/resource=";
     private $cityAPI = "https://politicsandwar.com/api/city/id=";
-    private $warAPI = "http://cloudnation.koso.com.br/cnalliancewar/active_wars_api";
+    private $warAPI = "http://cloudnation.koso.com.br/api/active_wars";
 
     public function call($name, $id = null) {
         $name .= "API";
