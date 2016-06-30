@@ -33,7 +33,7 @@ class SpyInfoCommand extends Command{
 
                     if ($this->channel[0] != 'D') {
                         $client->getChannelGroupOrDMByID($this->channel)->then(function (ChannelInterface $channel) use ($client) {
-                            $client->send("Please check your Direct Messages for list of raiding targets.", $channel);
+                            $client->send("Please check your Direct Messages for list of recorded spy operations on this nation.", $channel);
                         });
                     }
                 } else {
