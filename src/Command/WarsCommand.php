@@ -1,7 +1,7 @@
 <?php
 namespace SlackBot\Command;
 
-
+use Slack\ChannelInterface;
 use SlackBot\APICall;
 
 class WarsCommand extends Command {
@@ -58,7 +58,7 @@ class WarsCommand extends Command {
                 });
             }
         } else {
-            $message = "Missing Arguments. Must use \"!nation <nationid>\".";
+            $message = "Missing Arguments. Must use \"!wars <nationid>\".";
 
             $client->getChannelGroupOrDMByID($this->channel)->then(function (ChannelInterface $channel) use ($client, $message) {
                 $client->send($message, $channel);
