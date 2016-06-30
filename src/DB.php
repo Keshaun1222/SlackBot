@@ -34,14 +34,12 @@ class DB {
 
         $results = [];
         $result = $this->db->query($query);
-        if ($result->num_rows > 1) {
+        if ($result->num_rows >= 1) {
             while ($row = $result->fetch_array()) {
                 $results[] = $row;
             }
 
             return $results;
-        } else if ($result->num_rows == 1) {
-            return $result->fetch_array();
         } else {
             return null;
         }
