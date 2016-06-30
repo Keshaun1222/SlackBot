@@ -7,6 +7,7 @@ use Slack\RealTimeClient;
 use SlackBot\Command\HelpCommand;
 use SlackBot\Command\NationCommand;
 use SlackBot\Command\RaidingCommand;
+use SlackBot\Command\WarsCommand;
 use SlackBot\Message\Message;
 
 class SlackBot {
@@ -24,6 +25,7 @@ class SlackBot {
             'help' => HelpCommand::class,
             'nation' => NationCommand::class,
             'raiding' => RaidingCommand::class,
+            'wars' => WarsCommand::class,
         ];
 
         $manager = new Manager($client, $commandBindings);
