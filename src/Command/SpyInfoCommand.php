@@ -19,6 +19,7 @@ class SpyInfoCommand extends Command{
 
                     $message = $nation['name'] . " Spy Information\r\n------------------------\r\n";
                     foreach ($spies as $spy) {
+                        echo print_r($spy);
                         $date = new \DateTime($spy['timestamp'], new \DateTimeZone(getenv('TIMEZONE')));
                         $date->setTimezone(new \DateTimeZone('Africa/Dakar'));
                         $format = $date->format('(F d h:i A)');
