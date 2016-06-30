@@ -11,14 +11,16 @@ abstract class Command {
     protected $message;
     protected $userId;
     protected $channel;
+    protected $db;
     protected $args;
 
-    public function __construct(RealTimeClient $client, Manager $manager, Message $message, array $args = null) {
+    public function __construct(RealTimeClient $client, Manager $manager, Message $message, $db, array $args = null) {
         $this->client = $client;
         $this->manager = $manager;
         $this->message = $message;
         $this->userId = $message->getUser();
         $this->channel = $message->getChannel();
+        $this->db = $db;
         $this->args = $args;
 
         $this->init();

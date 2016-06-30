@@ -28,7 +28,9 @@ class SlackBot {
             'wars' => WarsCommand::class,
         ];
 
-        $manager = new Manager($client, $commandBindings);
+        $db = new DB();
+
+        $manager = new Manager($client, $commandBindings, $db);
 
         $client->on('message', function ($data) use ($client, $manager) {
             $message = new Message($data);

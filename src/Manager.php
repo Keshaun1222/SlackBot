@@ -12,10 +12,12 @@ use SlackBot\Message\Message;
 class Manager {
     private $commandBindings;
     private $client;
+    private $db;
 
-    public function __construct(RealTimeClient $client, array $commandBindings) {
+    public function __construct(RealTimeClient $client, array $commandBindings, DB $db) {
         $this->commandBindings = $commandBindings;
         $this->client = $client;
+        $this->db = $db;
     }
 
     public function input(Message $message) {
@@ -61,7 +63,7 @@ class Manager {
         }
 
         try {
-            $command = new $this->commandBindings[$command]($this->client, $this, $message, $args);
+            $command = new $this->commandBindings[$command]($this->client, $this, $message, $this->db, $args);
             $command->fire();
         } catch (Exception $e) {
             return false;
