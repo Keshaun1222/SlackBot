@@ -14,7 +14,7 @@ class SpyInfoCommand extends Command{
             if (is_numeric($nationID)) {
                 $nation = (new APICall())->call('nation', $nationID);
                 if (!isset($nation['error'])) {
-                    $where = array('target_id', 'int:' . $nationID);
+                    $where = array('target_id' => 'int:' . $nationID);
                     $spies = $db->query('spy', $where);
 
                     $message = $nation['name'] . " Spy Information\r\n------------------------\r\n";
