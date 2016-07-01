@@ -24,7 +24,7 @@ class SpyInfoCommand extends Command{
                         $date = new \DateTime($spy['timestamp'], new \DateTimeZone(getenv('TIMEZONE')));
                         $date->setTimezone(new \DateTimeZone('Africa/Dakar'));
                         $format = $date->format('(F d h:i A)');
-                        $message .= $spy['message'] . " " . $format . "\r\n";
+                        $message .= stripslashes($spy['message']) . " " . $format . "\r\n";
                     }
 
                     $this->client->getDMByUserId($this->userId)->then(function (DirectMessageChannel $dm) use ($client, $message) {

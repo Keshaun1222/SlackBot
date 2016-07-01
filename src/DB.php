@@ -61,6 +61,7 @@ class DB {
                 if ($type == "int" || $type == "timestamp") {
                     $query .= $value;
                 } else {
+                    $value = addslashes($this->db->real_escape_string($value));
                     $query .= "'" . $value . "'";
                 }
                 $j++;
