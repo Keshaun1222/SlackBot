@@ -9,6 +9,7 @@ use SlackBot\Command\NationCommand;
 use SlackBot\Command\RaidingCommand;
 use SlackBot\Command\WarsCommand;
 use SlackBot\Command\SpyInfoCommand;
+use SlackBot\Command\AddSpyCommand;
 use SlackBot\Message\Message;
 
 class SlackBot {
@@ -28,6 +29,7 @@ class SlackBot {
             'raiding' => RaidingCommand::class,
             'wars' => WarsCommand::class,
             'spyinfo' => SpyInfoCommand::class,
+            'addspy' => AddSpyCommand::class,
         ];
 
         $db = new DB();
