@@ -27,7 +27,7 @@ class AddSpyCommand extends Command {
                             $client->send($message, $channel);
                         });
                     } else {
-                        $message = "Could not log spy report: " . $db->error() . "\r\n";
+                        $message = "Could not log spy report.\r\n";
                         $client->getChannelGroupOrDMByID($this->channel)->then(function (ChannelInterface $channel) use ($client, $message) {
                             $client->send($message, $channel);
                         });
@@ -60,7 +60,7 @@ class AddSpyCommand extends Command {
                             $client->send($message, $channel);
                         });
                     } else {
-                        $message = "Could not log spy report: " . $db->error() . "\r\n";
+                        $message = "Could not log spy report.\r\n";
                         $client->getChannelGroupOrDMByID($this->channel)->then(function (ChannelInterface $channel) use ($client, $message) {
                             $client->send($message, $channel);
                         });
