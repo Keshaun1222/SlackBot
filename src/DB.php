@@ -75,4 +75,8 @@ class DB {
             return null;
         }
     }
+
+    public function error() {
+        return $this->db->error;
+    }
 }
