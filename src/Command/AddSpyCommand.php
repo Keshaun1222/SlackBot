@@ -44,7 +44,7 @@ class AddSpyCommand extends Command {
                 $first = explode("about ", $spyMessage);
                 $nationName = explode(".", $first[1])[0];
                 $nations = (new APICall())->call('nations');
-                foreach ($nations as $check) {
+                foreach ($nations['nations'] as $check) {
                     if ($check['nation'] == $nationName) {
                         $nationID = $check['nationid'];
                     }
