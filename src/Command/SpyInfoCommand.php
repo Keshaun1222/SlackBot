@@ -49,7 +49,7 @@ class SpyInfoCommand extends Command{
                     $client->send($message, $channel);
                 });*/
 
-                $nationName = $this->args[0];
+                $nationName = implode(" ", $this->args);
 
                 $nationID = 0;
                 $nations = (new APICall())->call('nations');
