@@ -41,8 +41,12 @@ class AddSpyCommand extends Command {
                 }
             } else {
                 $spyMessage = implode(" ", $this->args);
-                $first = explode("about ", $spyMessage);
-                $nationName = explode(".", $first[1])[0];
+                $first = explode(".", $spyMessage);
+                if (strstr($first[0], "about")) {
+                    $nationName = explode("about ", $first[0])[1];
+                } else {
+                    $nationName = explode("in ", $first[0])[1];
+                }
                 $nations = (new APICall())->call('nations');
                 foreach ($nations['nations'] as $check) {
                     if ($check['nation'] == $nationName) {
