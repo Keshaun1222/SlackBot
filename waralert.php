@@ -53,4 +53,4 @@ if ($send) {
     curl_exec($curl);
     curl_close($curl);
 }
-echo "Script ran accordingly";
+echo "Script ran accordingly\r\n";
