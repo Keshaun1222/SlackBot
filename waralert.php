@@ -36,21 +36,20 @@ foreach ($wars as $war) {
         }
     }
 }
+if ($send) {
+    $params = array(
+        'token' => getenv('TOKEN'),
+        'channel' => 'test',
+        'text' => $text,
+        'as_user' => 'true'
+    );
 
-$text = "Testing!\r\nHow are you?\r\n";
-
-$params = array(
-    'token' => getenv('TOKEN'),
-    'channel' => 'test',
-    'text' => $text,
-    'as_user' => 'true'
-);
-
-$curl = curl_init();
-curl_setopt($curl, CURLOPT_URL, 'https://slack.com/api/chat.postMessage');
-curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($curl, CURLOPT_USERAGENT, 'Crimson Bot');
-curl_setopt($curl, CURLOPT_POST, 1);
-curl_setopt($curl, CURLOPT_POSTFIELDS, $params);
-curl_exec($curl);
-curl_close($curl);
+    $curl = curl_init();
+    curl_setopt($curl, CURLOPT_URL, 'https://slack.com/api/chat.postMessage');
+    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($curl, CURLOPT_USERAGENT, 'Crimson Bot');
+    curl_setopt($curl, CURLOPT_POST, 1);
+    curl_setopt($curl, CURLOPT_POSTFIELDS, $params);
+    curl_exec($curl);
+    curl_close($curl);
+}
