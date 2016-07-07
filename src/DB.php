@@ -70,6 +70,8 @@ class DB {
                 }
             }
             $query .= ")";
+			
+			echo $query;
 
             return $this->db->query($query);
         } else {
