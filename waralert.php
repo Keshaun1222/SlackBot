@@ -32,7 +32,10 @@ foreach ($wars as $war) {
         if (count($check) == 0) {
             $text .= $war['def_name'] . " is being attacked by " . $war['atk_name'] . ". Timeline: https://politicsandwar.com/nation/war/timeline/war=" . $war['timeline_id'] . "\r\n";
             $send = true;
-            $db->insert('waralert', array('timeline'), array('int', $war['timeline_id']));
+            $insert = $db->insert('waralert', array('timeline'), array('int', $war['timeline_id']));
+            if (!$insert) {
+                echo $db->error();
+            }
         }
     }
 }
