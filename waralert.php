@@ -28,13 +28,12 @@ $wars = (new APICall())->call('war');
 foreach ($wars as $war) {
     if ($war['def_ally_id'] == 1584) {
         $check = $db->query('waralert', array('timeline' => 'int:' . $war['timeline_id']));
-        echo count($check);
         if (count($check) == 0) {
             $text .= $war['def_name'] . " is being attacked by " . $war['atk_name'] . ". Timeline: https://politicsandwar.com/nation/war/timeline/war=" . $war['timeline_id'] . "\r\n";
             $send = true;
-            $insert = $db->insert('waralert', array('timeline'), array('int', $war['timeline_id']));
+            $insert = $db->insert('waralert', array('timeline'), array('int' => $war['timeline_id']));
             if (!$insert) {
-                echo $db->error();
+                echo $db->error() . "\r\n";
             }
         }
     }
