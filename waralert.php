@@ -29,7 +29,7 @@ foreach ($wars as $war) {
     if ($war['def_ally_id'] == 1584) {
         $check = $db->query('waralert', array('timeline' => 'int:' . $war['timeline_id']));
         if (count($check) == 0) {
-            $text .= $war['def_name'] . " is being attacked by " . $war['atk_name'] . ". Timeline: https://politicsandwar.com/nation/war/timeline/war=" . $war['timeline_id'] . "\r\n";
+            $text .= "<https://politicsandwar.com/nation/id=" . $war['def_id'] . "|" . $war['def_name'] . "> is being attacked by <https://politicsandwar.com/nation/id=" . $war['atk_id'] . "|" . $war['atk_name'] . ">. Timeline: https://politicsandwar.com/nation/war/timeline/war=" . $war['timeline_id'] . "\r\n";
             $send = true;
             $insert = $db->insert('waralert', array('timeline'), array('int' => $war['timeline_id']));
             if (!$insert) {
