@@ -5,7 +5,7 @@ use Slack\ChannelInterface;
 use Slack\DirectMessageChannel;
 use SlackBot\APICall;
 
-class SpyInfoCommand extends Command{
+class SpyInfoCommand extends Command {
     public function fire() {
         $client = $this->client;
         $db = $this->db;
