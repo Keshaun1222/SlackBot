@@ -7,8 +7,8 @@ class CoinCommand extends Command {
     public function fire() {
         $client = $this->client;
 
-        $rand = rand(1, 4);
-        $coin = ($rand > 2 ? "Heads" : "Tails");
+        $rand = rand(1, 10);
+        $coin = ($rand > 5 ? "Heads" : "Tails");
 
         echo $rand . "\r\n";
 
