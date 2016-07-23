@@ -35,9 +35,9 @@ class WarsCommand extends Command {
                     } else if (count($this->args >= 2) && ($this->args[1] == 'defensive' || $this->args[1] == 'defense')) {
                         $message = "*" . $nation['name'] . "'s Defensive Wars*\r\n";
                         foreach ($defensives as $defense) {
-                            $other = (new APICall())->call("nation", $defense['def_id']);
+                            $other = (new APICall())->call("nation", $defense['atk_id']);
                             $name = $other['leadername'];
-                            $message .= "vs. " . $name . " of " . $defense['def_name'] . " - Timeline: https://politicsandwar.com/nation/war/timeline/war=" . $defense['timeline_id'] . "\r\n";
+                            $message .= "vs. " . $name . " of " . $defense['atk_name'] . " - Timeline: https://politicsandwar.com/nation/war/timeline/war=" . $defense['timeline_id'] . "\r\n";
                         }
                     } else {
                         $message = "*" . $nation['name'] . "'s Wars*\r\n";
