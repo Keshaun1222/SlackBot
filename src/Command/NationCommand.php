@@ -17,10 +17,17 @@ class NationCommand extends Command {
                     $message = "Nation Information\r\n------------------------\r\n";
                     $message .= "Nation Name: " . $nation['name'] . " || ";
                     $message .= "Nation Link: https://politicsandwar.com/nation/id=" . $nation['nationid'] . " || ";
+                    $message .= "Score: " . $nation['score'] . " || ";
                     $message .= "Nation Rank: " . $nation['nationrankstrings'] . "\r\n";
                     $message .= "# of Cities: " . count($nation['cityids']) . " || ";
-                    $message .= "Total Infrastructure: " . $nation['totalinfrastructure'] . " || ";
-                    $message .= "Total Land Area: " . $nation['landarea'] . "\r\n";
+                    $message .= "Total Infrastructure: " . number_format($nation['totalinfrastructure']) . " || ";
+                    $message .= "Total Land Area: " . number_format($nation['landarea']) . " || ";
+                    $message .= "Total Population: " . number_format($nation['population']) . "\r\n";
+                    $message .= "Soldiers: " . number_format($nation['soldiers']) . " || ";
+                    $message .= "Tanks: " . number_format($nation['tanks']) . " || ";
+                    $message .= "Aircrafts: " . number_format($nation['aircrafts']) . " || ";
+                    $message .= "Missles: " . number_format($nation['missiles']) . " || ";
+                    $message .= "Nukes: " . number_format($nation['nukes']) . "\r\n";
 
                     $client->getChannelGroupOrDMByID($this->channel)->then(function (ChannelInterface $channel) use ($client, $message) {
                         $client->send($message, $channel);

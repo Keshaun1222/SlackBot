@@ -25,24 +25,40 @@ class WarsCommand extends Command {
                         }
                     }
 
-                    $message = "*" . $nation['name'] ."'s Wars*\r\n";
-                    $message .= "Offensive Wars\r\n------------------------\r\n";
-                    foreach ($offensives as $offense) {
-                        $other = (new APICall())->call("nation", $offense['def_id']);
-                        $name = $other['leadername'];
-                        $message .= "vs. " . $name . " of " . $offense['def_name'] . " - Timeline: https://politicsandwar.com/nation/war/timeline/war=" . $offense['timeline_id'] . "\r\n";
-                    }
+                    if (count($this->args) >= 2 && ($this->args[1] == 'offensive' || $this->args[1] == 'offense')) {
+                        $message = "*" . $nation['name'] . "'s Offensive Wars*\r\n";
+                        foreach ($offensives as $offense) {
+                            $other = (new APICall())->call("nation", $offense['def_id']);
+                            $name = $other['leadername'];
+                            $message .= "vs. " . $name . " of " . $offense['def_name'] . " - Timeline: https://politicsandwar.com/nation/war/timeline/war=" . $offense['timeline_id'] . "\r\n";
+                        }
+                    } else if (count($this->args >= 2) && ($this->args[1] == 'defensive' || $this->args[1] == 'defense')) {
+                        $message = "*" . $nation['name'] . "'s Defensive Wars*\r\n";
+                        foreach ($defensives as $defense) {
+                            $other = (new APICall())->call("nation", $defense['def_id']);
+                            $name = $other['leadername'];
+                            $message .= "vs. " . $name . " of " . $defense['def_name'] . " - Timeline: https://politicsandwar.com/nation/war/timeline/war=" . $defense['timeline_id'] . "\r\n";
+                        }
+                    } else {
+                        $message = "*" . $nation['name'] . "'s Wars*\r\n";
+                        $message .= "Offensive Wars\r\n------------------------\r\n";
+                        foreach ($offensives as $offense) {
+                            $other = (new APICall())->call("nation", $offense['def_id']);
+                            $name = $other['leadername'];
+                            $message .= "vs. " . $name . " of " . $offense['def_name'] . " - Timeline: https://politicsandwar.com/nation/war/timeline/war=" . $offense['timeline_id'] . "\r\n";
+                        }
 
-                    $message .= "Defensive Wars\r\n------------------------\r\n";
-                    foreach ($defensives as $defense) {
-                        $other = (new APICall())->call("nation", $defense['def_id']);
-                        $name = $other['leadername'];
-                        $message .= "vs. " . $name . " of " . $defense['def_name'] . " - Timeline: https://politicsandwar.com/nation/war/timeline/war=" . $defense['timeline_id'] . "\r\n";
-                    }
+                        $message .= "Defensive Wars\r\n------------------------\r\n";
+                        foreach ($defensives as $defense) {
+                            $other = (new APICall())->call("nation", $defense['def_id']);
+                            $name = $other['leadername'];
+                            $message .= "vs. " . $name . " of " . $defense['def_name'] . " - Timeline: https://politicsandwar.com/nation/war/timeline/war=" . $defense['timeline_id'] . "\r\n";
+                        }
 
-                    $client->getChannelGroupOrDMByID($this->channel)->then(function (ChannelInterface $channel) use ($client, $message) {
-                        $client->send($message, $channel);
-                    });
+                        $client->getChannelGroupOrDMByID($this->channel)->then(function (ChannelInterface $channel) use ($client, $message) {
+                            $client->send($message, $channel);
+                        });
+                    }
                 } else {
                     $message = "Nation does not exist. :pacman:\r\n";
 
