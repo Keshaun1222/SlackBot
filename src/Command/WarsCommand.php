@@ -54,11 +54,11 @@ class WarsCommand extends Command {
                             $name = $other['leadername'];
                             $message .= "vs. " . $name . " of " . $defense['def_name'] . " - Timeline: https://politicsandwar.com/nation/war/timeline/war=" . $defense['timeline_id'] . "\r\n";
                         }
-
-                        $client->getChannelGroupOrDMByID($this->channel)->then(function (ChannelInterface $channel) use ($client, $message) {
-                            $client->send($message, $channel);
-                        });
                     }
+
+                    $client->getChannelGroupOrDMByID($this->channel)->then(function (ChannelInterface $channel) use ($client, $message) {
+                        $client->send($message, $channel);
+                    });
                 } else {
                     $message = "Nation does not exist. :pacman:\r\n";
 
