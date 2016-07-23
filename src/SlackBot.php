@@ -4,6 +4,7 @@ namespace SlackBot;
 use React\EventLoop\Factory;
 use Slack\ConnectionException;
 use Slack\RealTimeClient;
+use SlackBot\Command\CoinCommand;
 use SlackBot\Command\DiceCommand;
 use SlackBot\Command\ETACommand;
 use SlackBot\Command\HelpCommand;
@@ -34,7 +35,8 @@ class SlackBot {
             'addspy' => AddSpyCommand::class,
             'jello' => ETACommand::class,
             'eta' => ETACommand::class,
-            'dice' => DiceCommand::class
+            'dice' => DiceCommand::class,
+            'coin' => CoinCommand::class
         ];
 
         $db = new DB();
