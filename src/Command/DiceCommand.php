@@ -13,16 +13,28 @@ class DiceCommand extends Command {
         } else {
             if(strstr($this->args[0], "d")) {
                 $dice = explode("d", $this->args[0]);
-                $sides = $dice[1];
+                if ($dice[1] <= PHP_INT_MAX)
+                    $sides = $dice[1];
+                else
+                    $sides = PHP_INT_SIZE;
                 if ($dice[0] <= 10)
                     $times = $dice[0];
                 else
                     $times = 10;
             } else if (count($this->args) >= 2) {
-                $sides = $this->args[0];
-                $times = $this->args[1];
+                if ($this->args[0] <= PHP_INT_MAX)
+                    $sides = $this->args[0];
+                else
+                    $sides = PHP_INT_SIZE;
+                if ($this->args[1] <= 10)
+                    $times = $this->args[1];
+                else
+                    $times = 10;
             } else {
-                $sides = $this->args[0];
+                if ($this->args[0] <= PHP_INT_MAX)
+                    $sides = $this->args[0];
+                else
+                    $sides = PHP_INT_SIZE;
                 $times = 1;
             }
         }
