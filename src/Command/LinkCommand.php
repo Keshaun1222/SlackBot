@@ -15,9 +15,9 @@ class LinkCommand extends Command {
                 $nationID = $this->args[0];
                 $nation = (new APICall())->call('nation', $nationID);
                 if (!isset($nation['error'])) {
-                    $where = array('nation_id', 'int:' . $nationID);
+                    $where = array('nation_id' => 'int:' . $nationID);
                     if (!$db->query('link', $where)) {
-                        $check = array('user_id', 'string:' . $user);
+                        $check = array('user_id' => 'string:' . $user);
                         if (!$db->query('link', $check)) {
                             $cols = array('nation_id', 'user_id');
                             $values = array('int' => $nationID, 'string' => $user);

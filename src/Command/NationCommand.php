@@ -10,7 +10,7 @@ class NationCommand extends Command {
         $db = $this->db;
         $user = $this->userId;
         
-        $where = array('user_id', 'string:' . $user);
+        $where = array('user_id' => 'string:' . $user);
 
         if (count($this->args) >= 1 || $db->query('link', $where)) {
             $nationID = (count($this->args) >= 1 ? $this->args[0] : $db->query('link', $where)[0]['nation_id']);
