@@ -30,7 +30,7 @@ class RaidingCommand extends Command {
                     $nationsList = (new APICall())->call("nations");
                     echo "Count: " . count($nationsList['nations']) . "\r\n";
 
-                    $message = "Raiding Targets\r\n------------------------\r\n";
+                    $message = "Raiding Targets for " . $nation['name'] . "\r\n------------------------\r\n";
 
                     foreach ($nationsList['nations'] as $target) {
                         if ($target['allianceid'] == 0) {
