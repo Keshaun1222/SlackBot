@@ -35,12 +35,17 @@ class LinkCommand extends Command {
 
                             $update = $db->update('link', $values, $userWhere);
                             if ($update) {
-                                $message = $nation['name'] ." is now linked to you!\r\n";
+                                $message = $nation['name'] ." is now linked to you! :smile:\r\n";
                                 $client->getChannelGroupOrDMByID($this->channel)->then(function (ChannelInterface $channel) use ($client, $message) {
                                     $client->send($message, $channel);
                                 });
                             }
                         }
+                    } else if ($db->query('link', $where)[0]['user_id'] == $user) {
+                        $message = $nation['name'] ." is already linked to you! :laughing:\r\n";
+                        $client->getChannelGroupOrDMByID($this->channel)->then(function (ChannelInterface $channel) use ($client, $message) {
+                            $client->send($message, $channel);
+                        });
                     } else {
                         $message = $nation['name'] ." is already linked to another user! :frowning:\r\n";
                         $client->getChannelGroupOrDMByID($this->channel)->then(function (ChannelInterface $channel) use ($client, $message) {
