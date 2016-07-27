@@ -10,8 +10,6 @@ class DB {
         if ($this->db->connect_error) {
             die("Connection failed: " . $this->db->connect_error . "\r\n");
         }
-
-        echo "Connected to database '" . getenv('MYSQL_BASE') . "'.\r\n";
     }
 
     public function query($table, $where = array()) {

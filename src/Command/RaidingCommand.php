@@ -24,11 +24,9 @@ class RaidingCommand extends Command {
                 if (!isset($nation['error'])) {
                     $max = 1.75 * $nation['score'];
                     $min = 0.75 * $nation['score'];
-                    echo "Min: " . $min . "; Max: " . $max . "\r\n";
 
                     //$nations = [];
                     $nationsList = (new APICall())->call("nations");
-                    echo "Count: " . count($nationsList['nations']) . "\r\n";
 
                     $message = "Raiding Targets for " . $nation['name'] . "\r\n------------------------\r\n";
 

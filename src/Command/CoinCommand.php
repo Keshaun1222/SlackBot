@@ -10,8 +10,6 @@ class CoinCommand extends Command {
         $rand = rand(1, 10);
         $coin = ($rand > 5 ? "Heads" : "Tails");
 
-        echo $rand . "\r\n";
-
         $message = "*Flipping the coin...*\r\n";
         $message .= "Coin landed on *" . $coin . "*.";
 
