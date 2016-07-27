@@ -19,7 +19,7 @@ class RaidingCommand extends Command {
             if (is_numeric($nationID)) {
                 $nation = (new APICall())->call("nation", $nationID);
 
-                $param = (count($this->args >= 2) && is_numeric($this->args[0]) ? $this->args[1] : (count($this->args >= 1) ? $this->args[0] : "none"));
+                $param = (count($this->args) >= 2 && is_numeric($this->args[0]) ? $this->args[1] : (count($this->args) >= 1 ? $this->args[0] : "none"));
 
                 if (!isset($nation['error'])) {
                     $max = 1.75 * $nation['score'];
