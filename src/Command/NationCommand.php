@@ -29,7 +29,7 @@ class NationCommand extends Command {
                     $message .= "Total Population: " . number_format($nation['population']) . "\r\n";
                     $message .= "Soldiers: " . number_format($nation['soldiers']) . " || ";
                     $message .= "Tanks: " . number_format($nation['tanks']) . " || ";
-                    $message .= "Aircrafts: " . number_format($nation['aircrafts']) . " || ";
+                    $message .= "Aircrafts: " . number_format($nation['aircraft']) . " || ";
                     $message .= "Missles: " . number_format($nation['missiles']) . " || ";
                     $message .= "Nukes: " . number_format($nation['nukes']) . "\r\n";
 
