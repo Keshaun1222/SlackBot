@@ -8,6 +8,7 @@ use SlackBot\Command\CoinCommand;
 use SlackBot\Command\DiceCommand;
 use SlackBot\Command\ETACommand;
 use SlackBot\Command\HelpCommand;
+use SlackBot\Command\LinkCommand;
 use SlackBot\Command\NationCommand;
 use SlackBot\Command\RaidingCommand;
 use SlackBot\Command\WarsCommand;
@@ -36,7 +37,8 @@ class SlackBot {
             'jello' => ETACommand::class,
             'eta' => ETACommand::class,
             'dice' => DiceCommand::class,
-            'coin' => CoinCommand::class
+            'coin' => CoinCommand::class,
+            'link' => LinkCommand::class
         ];
 
         $db = new DB();
