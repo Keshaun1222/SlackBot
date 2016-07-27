@@ -13,7 +13,7 @@ class NationCommand extends Command {
         $where = array('user_id' => 'string:' . $user);
 
         if (count($this->args) >= 1 || $db->query('link', $where)) {
-            $nationID = (count($this->args) >= 1 ? $this->args[0] : $db->query('link', $where)[0]['nation_id']);
+            $nationID = (count($this->args) >= 1 && is_numeric($this->args[0]) ? $this->args[0] : ($db->query('link', $where) ? $db->query('link', $where)[0]['nation_id'] : "Na"));
             if (is_numeric($nationID)) {
                 $nation = (new APICall())->call("nation", $nationID);
 
@@ -43,6 +43,12 @@ class NationCommand extends Command {
                         $client->send($message, $channel);
                     });
                 }
+            } else if ($nationID == "na") {
+                $message = "No nation is linked to your slack account. Please use the *!link* command, or provide a nation id for *!raiding*.";
+
+                $client->getChannelGroupOrDMByID($this->channel)->then(function (ChannelInterface $channel) use ($client, $message) {
+                    $client->send($message, $channel);
+                });
             } else {
                 $message = "Invalid Arguments. Must use \"!nation <nationid>\".";
 

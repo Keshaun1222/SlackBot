@@ -172,7 +172,7 @@ class RaidingCommand extends Command {
                         $client->send($message, $channel);
                     });
                 }
-            } else if($nationID == "na") {
+            } else if ($nationID == "na") {
                 $message = "No nation is linked to your slack account. Please use the *!link* command, or provide a nation id for *!raiding*.";
 
                 $client->getChannelGroupOrDMByID($this->channel)->then(function (ChannelInterface $channel) use ($client, $message) {
