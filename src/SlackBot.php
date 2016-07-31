@@ -2,6 +2,7 @@
 namespace SlackBot;
 
 use React\EventLoop\Factory;
+use Slack\ChannelInterface;
 use Slack\ConnectionException;
 use Slack\RealTimeClient;
 use SlackBot\Command\CoinCommand;
@@ -63,6 +64,10 @@ class SlackBot {
         }, function(ConnectionException $e) {
             echo $e->getMessage();
             exit();
+        });
+
+        $client->getChannelById("C1AMVKBQD")->then(function (ChannelInterface $testChan) use ($client) {
+            $client->send("CrimsonBot is now online!\r\n", $testChan);
         });
 
         $eventLoop->run();
