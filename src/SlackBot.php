@@ -73,6 +73,6 @@ class SlackBot {
             exit();
         });
 
-        $eventLoop->run();
+        //$eventLoop->run();
     }
 }
