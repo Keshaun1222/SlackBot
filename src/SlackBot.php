@@ -11,6 +11,7 @@ use SlackBot\Command\ETACommand;
 use SlackBot\Command\HelpCommand;
 use SlackBot\Command\LinkCommand;
 use SlackBot\Command\NationCommand;
+use SlackBot\Command\QuitCommand;
 use SlackBot\Command\RaidingCommand;
 use SlackBot\Command\WarsCommand;
 use SlackBot\Command\SpyInfoCommand;
@@ -39,7 +40,10 @@ class SlackBot {
             'eta' => ETACommand::class,
             'dice' => DiceCommand::class,
             'coin' => CoinCommand::class,
-            'link' => LinkCommand::class
+            'link' => LinkCommand::class,
+            'quit' => QuitCommand::class,
+            'exit' => QuitCommand::class,
+            'bye' => QuitCommand::class
         ];
 
         $db = new DB();
