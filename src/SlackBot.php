@@ -66,7 +66,7 @@ class SlackBot {
         $client->connect()->then(function() use ($client) {
             echo "Connected.\n";
             $client->getChannelById("C1AMVKBQD")->then(function (ChannelInterface $testChan) use ($client) {
-                $client->send("CrimsonBot is now online!\r\n", $testChan);
+                $client->send("CrimsonBot is now *ONLINE*!\r\n", $testChan);
             });
         }, function(ConnectionException $e) {
             echo $e->getMessage();

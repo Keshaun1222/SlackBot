@@ -9,7 +9,7 @@ class QuitCommand extends Command {
         //$loop = $client->getLoop();
 
         if ($this->userId == "U1DRN6DJQ") {
-            $message = "CrimsonBot is now offline!\r\n";
+            $message = "CrimsonBot is now *OFFLINE*!\r\n";
             $client->getChannelGroupOrDMByID($this->channel)->then(function (ChannelInterface $channel) use ($client, $message) {
                 $client->send($message, $channel);
             });
