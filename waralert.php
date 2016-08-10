@@ -41,7 +41,7 @@ foreach ($wars as $war) {
 if ($send) {
     $params = array(
         'token' => getenv('TOKEN'),
-        'channel' => 'test',
+        'channel' => 'military-watch',
         'text' => $text,
         'as_user' => 'true'
     );
