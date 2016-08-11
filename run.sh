@@ -2,9 +2,9 @@
 
 while true; do
     begin=`date +%s`
-    waralert.php
+    php waralert.php
     end=`date +%s`
-    if [ $(($end - $begin)) -lt 5 ]; then
-        sleep $(($begin + 5 - $end))
+    if [ $(($end - $begin)) -lt 10 ]; then
+        sleep $(($begin + 19 - $end))
     fi
 done
