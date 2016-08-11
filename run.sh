@@ -7,4 +7,4 @@ while true; do
     if [ $(($end - $begin)) -lt 10 ]; then
         sleep $(($begin + 19 - $end))
     fi
-done
+done &
