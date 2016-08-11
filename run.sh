@@ -1,10 +1,5 @@
 #!/bin/bash
-
-while true; do
-    begin=`date +%s`
-    php waralert.php
-    end=`date +%s`
-    if [ $(($end - $begin)) -lt 10 ]; then
-        sleep $(($begin + 19 - $end))
-    fi
-done &
+for loop in 1 2 3 4 5 6; do
+    php waralert.php &
+    sleep 10
+done
