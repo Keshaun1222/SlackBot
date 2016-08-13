@@ -13,6 +13,7 @@ use SlackBot\Command\LinkCommand;
 use SlackBot\Command\NationCommand;
 use SlackBot\Command\QuitCommand;
 use SlackBot\Command\RaidingCommand;
+use SlackBot\Command\RangeCommand;
 use SlackBot\Command\WarsCommand;
 use SlackBot\Command\SpyInfoCommand;
 use SlackBot\Command\AddSpyCommand;
@@ -43,7 +44,8 @@ class SlackBot {
             'link' => LinkCommand::class,
             'quit' => QuitCommand::class,
             'exit' => QuitCommand::class,
-            'bye' => QuitCommand::class
+            'bye' => QuitCommand::class,
+            'range' => RangeCommand::class
         ];
 
         $db = new DB();
