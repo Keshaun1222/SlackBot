@@ -3,6 +3,7 @@ namespace SlackBot\Command;
 
 
 use Slack\ChannelInterface;
+use SlackBot\APICall;
 
 class RangeCommand extends Command {
     public function fire() {
