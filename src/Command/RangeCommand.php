@@ -23,7 +23,7 @@ class RangeCommand extends Command {
                 if (!isset($nation['error'])) {
                     $war = array (0.75 * $nation['score'], 1.75 * $nation['score']);
                     $spy = array(0.6 * $nation['score'], 1.67 * $nation['score']);
-                    $message = "*" . $nation['name'] . "*\r\n";
+                    $message = "*" . $nation['name'] . "*\r\n_Score: " . $nation['score'] . "_\r\n";
                     if ($param != 'spy')
                         $message .= "War Range: " . $war[0] . " - " . $war[1] . "\r\n";
                     if ($param != 'war')
