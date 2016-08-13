@@ -51,6 +51,6 @@ class DiceCommand extends Command {
     }
 
     public function help() {
-        return "!dice [s|nds] [n] - Rolls up to 10 dices. See <http://www.knightsradiant.pw/topic/2155-crimsonbot/#comment-36549|this forum post> for clarification.";
+        return "!dice [s|nds] [n] - Rolls up to 10 dices. See Crimsonbot\'s thread in the TKR Programming Group forum for clarification.";
     }
 }
