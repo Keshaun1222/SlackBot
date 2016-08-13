@@ -192,4 +192,8 @@ class RaidingCommand extends Command {
         }
 
     }
+
+    public function help() {
+        return "!raiding [nationid] [none|beige|vacation|both] - Lookup raiding targets with your nation's war range.";
+    }
 }

@@ -95,4 +95,8 @@ class SpyInfoCommand extends Command {
             });
         }
     }
+
+    public function help() {
+        return "!spyinfo <nationid|name> - Gets the recorded spy information for a nation.";
+    }
 }

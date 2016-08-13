@@ -37,15 +37,15 @@ class SlackBot {
             'wars' => WarsCommand::class,
             'spyinfo' => SpyInfoCommand::class,
             'addspy' => AddSpyCommand::class,
-            'jello' => ETACommand::class,
-            'eta' => ETACommand::class,
+            'range' => RangeCommand::class,
             'dice' => DiceCommand::class,
             'coin' => CoinCommand::class,
             'link' => LinkCommand::class,
+            'jello' => ETACommand::class,
+            'eta' => ETACommand::class,
             'quit' => QuitCommand::class,
             'exit' => QuitCommand::class,
-            'bye' => QuitCommand::class,
-            'range' => RangeCommand::class
+            'bye' => QuitCommand::class
         ];
 
         $db = new DB();

@@ -34,4 +34,6 @@ abstract class Command {
     }
 
     public abstract function fire();
+
+    public abstract function help();
 }

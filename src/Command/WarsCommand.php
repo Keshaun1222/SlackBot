@@ -94,4 +94,8 @@ class WarsCommand extends Command {
             });
         }
     }
+
+    public function help() {
+        return "!wars [nationid] [offensive|offense|off|agg|atk|defensive|defense|def] - Gets the active wars for a nation.";
+    }
 }

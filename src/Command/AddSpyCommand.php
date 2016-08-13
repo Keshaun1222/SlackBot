@@ -85,4 +85,8 @@ class AddSpyCommand extends Command {
             });
         }
     }
+
+    public function help() {
+        return "!addspy [nationid] <message> - Adds a spy report for a nation.";
+    }
 }

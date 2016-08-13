@@ -27,4 +27,8 @@ class CoinCommand extends Command {
             $client->send($message, $channel);
         });
     }
+
+    public function help() {
+        return "!coin [heads|h|tails|t] - Flips a coin. If an argument was supplies, the bot assumes you\'re guessing which side the coin will land on.";
+    }
 }

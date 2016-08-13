@@ -74,4 +74,8 @@ class LinkCommand extends Command {
             });
         }
     }
+
+    public function help() {
+        return "!link <nationid> - Links your nation to your slack account. This allows you to use other commands for your nation without specifying your nation id.";
+    }
 }

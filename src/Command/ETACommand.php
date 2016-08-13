@@ -13,4 +13,8 @@ class ETACommand extends Command {
             $client->send($message, $channel);
         });
     }
+
+    public function help() {
+        return "!eta|jello - Just a joke. :pacman:";
+    }
 }

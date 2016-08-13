@@ -20,6 +20,10 @@ class Manager {
         $this->db = $db;
     }
 
+    public function getCommands() {
+        return $this->commandBindings;
+    }
+
     public function input(Message $message) {
         $input = $message->getText();
 

@@ -36,4 +36,8 @@ class RangeCommand extends Command {
             }
         }
     }
+
+    public function help() {
+        return "!range [nationid] [war|spy] - Gives you the war and/or spy range for a nation.";
+    }
 }

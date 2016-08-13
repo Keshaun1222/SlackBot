@@ -64,4 +64,8 @@ class NationCommand extends Command {
             });
         }
     }
+
+    public function help() {
+        return "!nation [nationid] - Lookup the stats of a nation.";
+    }
 }

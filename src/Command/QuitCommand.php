@@ -21,4 +21,8 @@ class QuitCommand extends Command {
             });
         }
     }
+
+    public function help() {
+        return "!quit|bye|exit - Makes the bot disconnect from slack. *Only Keshaun1222 can use this command!*";
+    }
 }
