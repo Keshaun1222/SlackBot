@@ -17,7 +17,8 @@ class HelpCommand extends Command {
         $commands = array();
         foreach ($this->manager->getCommands() as $command) {
             if (!in_array($command, $commands)) {
-                $message .= $command->help() . "\r\n";
+                $cmd = new $command($this->client, $this->manager, $this->message, $this->db, array());
+                $message .= $cmd->help() . "\r\n";
                 $commands[] = $command;
             }
         }
