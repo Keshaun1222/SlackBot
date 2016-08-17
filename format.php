@@ -21,7 +21,7 @@ error_reporting(E_ALL);
 
 //$db = new DB();
 
-$text = "<!here>";
+$text = "Test";
 $send = true;
 
 /*$wars = (new APICall())->call('war');
@@ -41,7 +41,7 @@ foreach ($wars as $war) {
 if ($send) {
     $params = array(
         'token' => getenv('TOKEN'),
-        'channel' => 'test',
+        'channel' => 'military-watch',
         'text' => $text,
         'as_user' => 'true'
     );
